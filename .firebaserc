@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "firestarter-fcca9": {
+      "hosting": {
+        "firestarter": [
+          "firestarter-fcca9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "firestarter-fcca9"
+  }
+}
