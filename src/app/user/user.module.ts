@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UserRoutingModule } from './user-routing.module';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SharedModule } from "../shared/shared.module";
+import { Authentication} from "./models/auth.model";
+import { GoogleAuthService } from "./services";
 
 
 @NgModule({
@@ -11,7 +13,14 @@ import { LoginPageComponent } from './login-page/login-page.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    SharedModule
+  ],
+  providers: [
+    {
+      provide: Authentication,
+      useClass: GoogleAuthService
+    }
   ]
 })
 export class UserModule { }
