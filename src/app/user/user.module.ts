@@ -6,12 +6,14 @@ import { SharedModule } from "../shared/shared.module";
 import { Authentication} from "./models/auth.model";
 import { GoogleAuthService } from "./services";
 import { GoogleAuthComponent } from './components/google-auth/google-auth.component';
+import { EmailLoginComponent } from './components/email-login/email-login.component';
 
 
 @NgModule({
   declarations: [
     LoginPageComponent,
-    GoogleAuthComponent
+    GoogleAuthComponent,
+    EmailLoginComponent
   ],
   imports: [
     CommonModule,

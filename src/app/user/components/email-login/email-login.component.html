@@ -1,0 +1,83 @@
+<mat-card>
+  <div>
+    <h3>Create Account</h3>
+
+    <button mat-stroked-button>
+      Returning user?
+    </button>
+  </div>
+
+  <div>
+    <h3>Sign In</h3>
+    <button size="small" mat-stroked-button>
+      New user?
+    </button>
+  </div>
+
+  <div>
+    <h3>Reset Password</h3>
+    <button size="small" mat-button>Back</button>
+  </div>
+
+  <form >
+    <mat-form-field>
+      <input
+        matInput
+        type="email"
+        placeholder="Email"
+        autocomplete="off"
+      />
+
+      <mat-error>
+        You must enter a valid email address
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        autocomplete="off"
+      />
+
+      <mat-error>
+        Password must be at least 6 characters long
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        placeholder="Confirm password"
+        autocomplete="off"
+      />
+
+      <mat-error>
+        Password does not match
+      </mat-error>
+    </mat-form-field>
+
+    <mat-error class="server-error"></mat-error>
+
+    <button
+      mat-stroked-button
+      type="submit"
+    >
+      Send Reset Email
+    </button>
+
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+
+  <button mat-button>
+    Forgot password?
+  </button>
+</mat-card>
