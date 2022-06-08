@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Authentication } from "../models/auth.model";
 
 @Component({
   selector: 'app-login-page',
@@ -8,5 +7,5 @@ import { Authentication } from "../models/auth.model";
 })
 export class LoginPageComponent {
 
-  constructor(public readonly auth: Authentication) {}
+  constructor() {}
 }

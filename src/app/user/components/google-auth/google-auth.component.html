@@ -1,0 +1,22 @@
+<div class="auth-block" *ngIf="auth.isSignedIn$ | async; else login">
+  <p>
+    You are logged in
+  </p>
+
+  <button mat-stroked-button (click)="auth.signOut()">Logout</button>
+</div>
+
+<ng-template #login>
+  <div class="auth-block">
+    <h1>Login</h1>
+
+    <button class="login-button" mat-raised-button (click)="auth.signIn()">
+      <div class="login-button__inner">
+        <div class="login-button__icon">
+          <img class="login-button__img" src="../../../../assets/images/google-logo.webp"/>
+        </div>
+        <span>Login with Google</span>
+      </div>
+    </button>
+  </div>
+</ng-template>
