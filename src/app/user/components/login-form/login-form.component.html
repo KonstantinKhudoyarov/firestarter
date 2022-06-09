@@ -1,0 +1,57 @@
+<mat-card class="form-container">
+  <form [formGroup]="form" class="form-login">
+    <mat-form-field [color]="email?.valid && 'accent'">
+      <input
+        formControlName="email"
+        matInput
+        type="email"
+        placeholder="Email"
+        autocomplete="off"
+      />
+
+      <mat-error *ngIf="email?.invalid && email?.dirty">
+        You must enter a valid email address
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field [color]="email?.valid && 'accent'">
+      <input
+        formControlName="password"
+        matInput
+        type="password"
+        placeholder="Password"
+        autocomplete="off"
+      />
+
+      <mat-error *ngIf="password?.invalid && password?.dirty">
+        Password must be at least 6 characters long
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field [color]="passwordDoesMatch ? 'accent' : 'warn'">
+      <input
+        formControlName="passwordConfirm"
+        matInput
+        type="password"
+        placeholder="Confirm password"
+        autocomplete="off"
+      />
+
+      <mat-error *ngIf="passwordConfirm?.dirty && !passwordDoesMatch">
+        Password does not match
+      </mat-error>
+    </mat-form-field>
+
+    <mat-error class="server-error">{{ serverMessage }}</mat-error>
+
+    <button
+      mat-raised-button
+      class="form-button"
+      color="accent"
+      type="submit"
+      [disabled]="isButtonDisabled"
+    >
+      Submit
+    </button>
+  </form>
+</mat-card>
