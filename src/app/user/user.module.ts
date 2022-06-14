@@ -7,17 +7,13 @@ import { Authentication} from "./models/auth.model";
 import { GoogleAuthService } from "./services";
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { GoogleAuthComponent } from './components/google-auth/google-auth.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { SignUpFormComponent } from "./components/sign-up-form/sign-up-form.component";
-import { PasswordResetFormComponent } from "./components/password-reset-form/password-reset-form.component";
+import { EmailLoginComponent } from './components/email-login/emai-login.component';
 
 @NgModule({
   declarations: [
     LoginPageComponent,
     GoogleAuthComponent,
-    LoginFormComponent,
-    SignUpFormComponent,
-    PasswordResetFormComponent
+    EmailLoginComponent
   ],
   imports: [
     CommonModule,

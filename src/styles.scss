@@ -71,15 +71,3 @@ $firestarter-theme: mat.define-dark-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.form-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.form-login {
-  display: flex;
-  flex-direction: column;
-}
