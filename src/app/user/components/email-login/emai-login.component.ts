@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -11,7 +11,8 @@ import { FormType } from "../../models/login.types";
 @Component({
   selector: 'app-email-login',
   templateUrl: './email-login.component.html',
-  styleUrls: ['./email-login.component.scss']
+  styleUrls: ['./email-login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmailLoginComponent {
 

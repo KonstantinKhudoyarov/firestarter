@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
-import {map, shareReplay} from "rxjs";
+import { map, shareReplay } from "rxjs";
 
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss']
+  styleUrls: ['./shell.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShellComponent {
 
