@@ -1,4 +1,4 @@
-import { TaskColors } from "./kanban.types";
+import { TaskColors } from "./";
 
 export interface Task {
   description?: string;
