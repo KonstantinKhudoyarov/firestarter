@@ -28,8 +28,9 @@ export class BoardService {
               }).valueChanges({idField: "id"})
           }
           return [];
-        })
-      );
+        }),
+        untilDestroyed(this)
+      ).subscribe();
   }
 
   public createBoard(board: Board): void {
@@ -51,7 +52,9 @@ export class BoardService {
         .collection(DBCollections.Boards)
         .doc(boardId)
         .delete()
-    ).subscribe();
+    )
+      .pipe(untilDestroyed(this))
+      .subscribe();
   }
 
   public updateTasks(boardId: string, tasks: Task[]): void {
@@ -60,7 +63,9 @@ export class BoardService {
         .collection(DBCollections.Boards)
         .doc(boardId)
         .update({tasks})
-    ).subscribe();
+    )
+      .pipe(untilDestroyed(this))
+      .subscribe();
   }
 
   public removeTask(boardId: string, task: Task): void {
@@ -71,6 +76,8 @@ export class BoardService {
         .update({
           tasks: firebase.firestore.FieldValue.arrayRemove(task)
         })
-    ).subscribe()
+    )
+      .pipe(untilDestroyed(this))
+      .subscribe()
   }
 }
