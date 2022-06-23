@@ -80,4 +80,12 @@ export class BoardService {
       .pipe(untilDestroyed(this))
       .subscribe()
   }
+
+  public sortBoards(boards: Board[]): void {
+    const db = firebase.firestore();
+    const batch = db.batch();
+    const refs = boards.map(board => db.collection(DBCollections.Boards).doc(board.id));
+    refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
+    batch.commit();
+  }
 }
