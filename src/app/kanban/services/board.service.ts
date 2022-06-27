@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { from, switchMap } from "rxjs";
+import { from, Observable, switchMap } from "rxjs";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
-import firebase from "firebase/compat";
+import firebase from "firebase/compat/app";
 import { DBCollections, Board } from "../models";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 
@@ -17,8 +17,8 @@ export class BoardService {
     private readonly db: AngularFirestore
   ) {}
 
-  public getBoards(): void {
-    this.afAuth.authState
+  public getBoards(): Observable<Board[]> {
+    return this.afAuth.authState
       .pipe(
         switchMap(user => {
           if (user) {
@@ -30,7 +30,7 @@ export class BoardService {
           return [];
         }),
         untilDestroyed(this)
-      ).subscribe();
+      );
   }
 
   public createBoard(board: Board): void {
