@@ -14,7 +14,7 @@ export class BoardDialogComponent {
     @Inject(MAT_DIALOG_DATA) public readonly data: any
   ) { }
 
-  public onNoClick(): void {
+  public close(): void {
     this.dialogRef.close();
   }
 }
