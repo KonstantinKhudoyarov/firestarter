@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
+import { MatDialog } from "@angular/material/dialog";
 import { BoardService } from "../../services/board.service";
 import { Board } from "../../models";
 
@@ -15,7 +16,8 @@ export class BoardListComponent implements OnInit {
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    private readonly boardsService: BoardService
+    private readonly boardsService: BoardService,
+    private readonly dialog: MatDialog
   ) {}
 
   public boards?: Board[];
