@@ -4,6 +4,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { MatDialog } from "@angular/material/dialog";
 import { BoardService } from "../../services/board.service";
 import { Board } from "../../models";
+import { BoardDialogComponent } from "../../dialogs/board-dialog/board-dialog.component";
 
 @UntilDestroy()
 @Component({
@@ -36,5 +37,23 @@ export class BoardListComponent implements OnInit {
       moveItemInArray(this.boards, e.previousIndex, e.currentIndex);
       this.boardsService.sortBoards(this.boards);
     }
+  }
+
+  public openBoardDialog(): void {
+    const dialogRef = this.dialog.open(BoardDialogComponent, {
+      width: "400px",
+      data: {}
+    });
+
+    dialogRef.afterClosed()
+      .pipe(untilDestroyed(this))
+      .subscribe(result => {
+        if(result) {
+          this.boardsService.createBoard({
+            title: result,
+            priority: this.boards?.length
+          });
+        }
+      })
   }
 }

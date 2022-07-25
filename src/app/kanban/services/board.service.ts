@@ -3,7 +3,7 @@ import { from, Observable, switchMap } from "rxjs";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import firebase from "firebase/compat/app";
-import { DBCollections, Board } from "../models";
+import {DBCollections, Board, Task} from "../models";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 
 @UntilDestroy()
